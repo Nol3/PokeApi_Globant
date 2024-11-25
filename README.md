@@ -14,6 +14,7 @@ Este proyecto es una aplicación web construida con Next.js que interactúa con 
 ```bash
 git clone <url-del-repositorio>
 cd <nombre-del-directorio>
+cd ex00
 ```
 ```
 npm install

@@ -7,8 +7,11 @@ import { PokemonFormData, PokemonType } from "./types/pokemon";
 import { Sparkles } from "lucide-react";
 import { generatePokemonImage } from "./lib/pollinations";
 import { useToast } from "@/components/ui/use-toast";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
+  const { data: session, status } = useSession();
   const [isLoading, setIsLoading] = useState(false);
   const [generatedPokemon, setGeneratedPokemon] = useState<{
     data: PokemonFormData;
@@ -36,10 +39,42 @@ export default function Home() {
     }
   };
 
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
+  if (!session) {
+    return (
+      <main className="min-h-screen bg-gradient-to-b from-background to-secondary p-8 flex flex-col items-center justify-center">
+        <div className="text-center space-y-4">
+          <h1 className="text-4xl font-bold tracking-tight flex items-center justify-center gap-2">
+            <Sparkles className="w-8 h-8 text-primary" />
+            AI Pokémon Generator
+          </h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+            Inicia sesión para crear tus propios Pokémon usando IA.
+          </p>
+          <Button onClick={() => signIn("github")}>
+            Iniciar sesión con GitHub
+          </Button>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-background to-secondary p-8">
       <div className="max-w-4xl mx-auto space-y-12">
         <div className="text-center space-y-4">
+          <div className="flex justify-end">
+            <Button variant="outline" onClick={() => signOut()}>
+              Cerrar sesión
+            </Button>
+          </div>
           <h1 className="text-4xl font-bold tracking-tight flex items-center justify-center gap-2">
             <Sparkles className="w-8 h-8 text-primary" />
             AI Pokémon Generator

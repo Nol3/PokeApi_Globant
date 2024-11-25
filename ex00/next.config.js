@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  //output: 'standalone',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -12,7 +12,8 @@ const nextConfig = {
         hostname: 'image.pollinations.ai',
         pathname: '**',
       }
-    ]
+    ],
+    domains: ['image.pollinations.ai', 'avatars.githubusercontent.com'],
   }
 };
 
