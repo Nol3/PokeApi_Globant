@@ -29,7 +29,9 @@ yarn dev
 
 Abre http://localhost:3000 en tu navegador para ver la aplicación.
 
+```
 npm run dev - Inicia el servidor de desarrollo
 npm run build - Construye la aplicación para producción
 npm run start - Inicia el servidor de producción
 npm run lint - Ejecuta el linter
+```
