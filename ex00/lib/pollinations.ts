@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { PokemonFormData } from '../types/pokemon';
+import { PokemonFormData } from '../app/types/pokemon';
 
 const POLLINATIONS_API_URL = 'https://image.pollinations.ai/prompt/';
 

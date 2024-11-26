@@ -5,7 +5,7 @@ import { useState } from "react";
 import { PokemonCard } from "./components/PokemonCard";
 import { PokemonFormData, PokemonType } from "./types/pokemon";
 import { Sparkles } from "lucide-react";
-import { generatePokemonImage } from "./lib/pollinations";
+import { generatePokemonImage } from "../lib/pollinations";
 import { useToast } from "@/components/ui/use-toast";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
