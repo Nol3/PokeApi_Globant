@@ -13,7 +13,7 @@ const nextConfig = {
         pathname: '**',
       }
     ],
-    domains: ['image.pollinations.ai', 'avatars.githubusercontent.com'],
+    domains: ['image.pollinations.ai', 'avatars.githubusercontent.com', 'raw.githubusercontent.com'],
   }
 };
 
