@@ -5,12 +5,12 @@ import { AuthOptions } from "next-auth";
 export const authOptions: AuthOptions = {
   providers: [
     GithubProvider({
-      clientId: process.env.GITHUB_ID || "",
-      clientSecret: process.env.GITHUB_SECRET || "",
+      clientId: process.env.GITHUB_ID || "dummy-client-id",
+      clientSecret: process.env.GITHUB_SECRET || "dummy-client-secret",
       authorization: {
         params: {
           // Usar VERCEL_URL como fallback si está disponible
-          redirect_uri: process.env.NEXTAUTH_URL 
+          redirect_uri: process.env.NEXTAUTH_URL
             ? `${process.env.NEXTAUTH_URL}/api/auth/callback/github`
             : process.env.VERCEL_URL
             ? `https://${process.env.VERCEL_URL}/api/auth/callback/github`
@@ -19,7 +19,7 @@ export const authOptions: AuthOptions = {
       }
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || "your-secret-key-here",
   callbacks: {
     async redirect({ url, baseUrl }) {
       // Si la URL comienza con el baseUrl, es segura
