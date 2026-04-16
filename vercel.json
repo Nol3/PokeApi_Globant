@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm install --prefix ex00 && npm run build --prefix ex00",
+  "buildCommand": "npm install --legacy-peer-deps --prefix ex00 && npm run build --prefix ex00",
   "outputDirectory": "ex00/.next",
   "framework": "nextjs"
 }
